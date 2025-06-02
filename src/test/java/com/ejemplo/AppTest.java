@@ -1,11 +1,13 @@
 package com.ejemplo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
 /**
- * Unit test for simple App.
+ * Pruebas unitarias para App.
  */
 public class AppTest {
 
@@ -16,5 +18,15 @@ public class AppTest {
         assertEquals(0, App.contarVocales(null));
     }
 
-    // No se agrega test para contieneA ni bug() para forzar errores
+    @Test
+    public void testContieneA() {
+        assertTrue(App.contieneA("banana"));
+        assertFalse(App.contieneA("xyz"));
+        assertFalse(App.contieneA(null));
+    }
+
+    @Test
+    public void testBug() {
+        assertEquals(-1, App.bug()); // Se espera -1 como valor seguro si la cadena es null
+    }
 }
