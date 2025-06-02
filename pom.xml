@@ -81,7 +81,7 @@
         <configuration>
           <configLocation>google_checks.xml</configLocation>
           <consoleOutput>true</consoleOutput>
-          <failsOnError>false</failsOnError>  <!-- ✅ no rompe el build -->
+          <failsOnError>false</failsOnError>
         </configuration>
       </plugin>
 
@@ -94,13 +94,23 @@
           <execution>
             <phase>verify</phase>
             <goals>
-              <goal>spotbugs</goal>
+              <goal>check</goal>
             </goals>
           </execution>
         </executions>
         <configuration>
           <failOnError>false</failOnError>
+          <effort>max</effort>
+          <threshold>low</threshold>
+          <xmlOutput>true</xmlOutput> <!-- Necesario para el sitio -->
         </configuration>
+      </plugin>
+
+      <!-- Plugin para generar el sitio HTML -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.12.1</version>
       </plugin>
     </plugins>
   </build>
