@@ -15,15 +15,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Maven and Generate Reports
-        run: mvn clean verify site --no-transfer-progress || true
+      - name: Build and Analyze with Maven
+        run: mvn clean verify site || true
 
-      - name: Upload All Metric Reports
+      - name: Upload Reports
         uses: actions/upload-artifact@v4
         with:
           name: metric-reports
           path: |
-            target/site/index.html
             target/site/jacoco
-            target/site/checkstyle.html
             target/site/spotbugs.html
+            target/site/checkstyle.html
