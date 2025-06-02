@@ -9,16 +9,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up JDK 17
+      - name: Set up JDK 21          # ← ahora coincide con el POM
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
 
-      - name: Build and Analyze with Maven
-        run: mvn clean verify site || true
+      # Compila, ejecuta tests y genera reportes HTML
+      - name: Build, Test & Reports
+        run: |
+          mvn -B clean verify \
+              spotbugs:spotbugs \
+              checkstyle:checkstyle \
+              jacoco:report
 
-      - name: Upload Reports
+      - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
           name: metric-reports
