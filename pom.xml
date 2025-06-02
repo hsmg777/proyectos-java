@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ejemplo</groupId>
@@ -72,16 +71,16 @@
         <version>3.1.2</version>
         <executions>
           <execution>
-            <phase>verify</phase>
+            <phase>validate</phase>
             <goals>
-              <goal>checkstyle</goal>
+              <goal>check</goal>
             </goals>
           </execution>
         </executions>
         <configuration>
           <configLocation>google_checks.xml</configLocation>
           <consoleOutput>true</consoleOutput>
-          <failsOnError>false</failsOnError>
+          <failsOnError>true</failsOnError>
         </configuration>
       </plugin>
 
@@ -94,23 +93,60 @@
           <execution>
             <phase>verify</phase>
             <goals>
-              <goal>check</goal>
+              <goal>spotbugs</goal>
             </goals>
           </execution>
         </executions>
         <configuration>
-          <failOnError>false</failOnError>
+          <xmlOutput>true</xmlOutput>
+          <failOnError>false</failOnError> <!-- Esta línea evita que falle el build -->
           <effort>max</effort>
           <threshold>low</threshold>
-          <xmlOutput>true</xmlOutput> <!-- Necesario para el sitio -->
         </configuration>
       </plugin>
 
-      <!-- Plugin para generar el sitio HTML -->
+
+      <!-- Compilador con release 17 -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+
+      <!-- Otros plugins estándar -->
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.4.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.3.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>3.1.2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.1.2</version>
+      </plugin>
+      <plugin>
         <artifactId>maven-site-plugin</artifactId>
         <version>3.12.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.6.1</version>
       </plugin>
     </plugins>
   </build>

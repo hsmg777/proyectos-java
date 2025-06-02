@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="8.29">
-<file name="C:\Users\Jorge\IdeaProjects\proyectos-java\src\main\java\com\ejemplo\App.java">
-<error line="8" severity="error" message="La construcción &apos;if&apos; debe usar &apos;{}&apos; (llaves)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="25" column="16" severity="error" message="La variable &apos;s&apos; debe declararse final." source="com.puppycrawl.tools.checkstyle.checks.coding.FinalLocalVariableCheck"/>
-</file>
-</checkstyle>
