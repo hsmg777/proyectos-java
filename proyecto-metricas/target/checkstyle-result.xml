@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
-<file name="C:\Users\hayla\Documents\proyectos-java\proyecto-metricas\src\main\java\com\ejemplo\App.java">
-<error line="8" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<file name="C:\Users\Jorge\IdeaProjects\proyectos-java\proyecto-metricas\src\main\java\com\ejemplo\App.java">
+<error line="8" severity="error" message="La construcción &apos;if&apos; debe usar &apos;{}&apos; (llaves)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+</file>
+<file name="C:\Users\Jorge\IdeaProjects\proyectos-java\proyecto-metricas\src\main\java\com\ejemplo\Calculadora.java">
 </file>
 </checkstyle>
